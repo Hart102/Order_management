@@ -1,5 +1,6 @@
 .custom-scrollbar{
-    height: 700px;
+    max-height: 700px;
+    overflow-y: auto;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
@@ -20,4 +21,11 @@
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     background: #3b82f6;
+}
+
+
+@media screen and (max-width: 768px) {
+    .custom-scrollbar{
+        height: 75vh;
+    }
 }

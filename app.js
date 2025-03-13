@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
             orders = await response.json();
             renderOrders();
         } catch (error) {
-            console.error("Error fetching orders:", error);
+            console.log("Error fetching orders:", error);
         }
     };
 
@@ -72,15 +72,21 @@ document.addEventListener("DOMContentLoaded", async () => {
             renderOrders();
             isFetching = false;
         }
-    }, { threshold: 1.0 });
+    }, { threshold: 0.01, rootMargin: "200px" });
 
     // GET THE LAST ELEMENT IN THE TABLE
     const observeLastElement = () => {
-        const tableRows = document.querySelectorAll("#order-table tr");
-        if (tableRows.length && tableRows.length < orders.length) {
-            observer.observe(tableRows[tableRows.length - 1]);
-        }
+        setTimeout(() => {
+            const tableRows = document.querySelectorAll("#order-table tr");
+            if (tableRows.length && tableRows.length < orders.length) {
+                observer.observe(tableRows[tableRows.length - 1]);
+            }
+        }, 300);
     };
+
+    // WATCH FOR DYNAMIC CHANGES IN THE TABLE
+    const mutationObserver = new MutationObserver(observeLastElement);
+    mutationObserver.observe(orderTable, { childList: true });
 
     filterStatus.addEventListener("change", renderOrders);
     sortString.addEventListener("change", renderOrders);
