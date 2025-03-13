@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // FETCH ORDERS FROM JSON FILE
     const fetchOrders = async () => {
         try {
-            const response = await fetch("./orders.json");
+            const response = await fetch("orders.json");
             orders = await response.json();
             renderOrders();
         } catch (error) {
