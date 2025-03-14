@@ -35,21 +35,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         observeLastElement();
     };
 
-    const className = "pt-4 lg:pt-10 pb-2 border px-1 border-gray-200 lg:border-0 lg:border-b whitespace-nowrap";
     const createRow = (order) => {
         return `
-            <tr class="border lg:border-0 lg:text-center">
-                <td class="${className}">${order.id}</td>
-                <td class="${className}">${order.customer}</td>
-                <td class="${className}">${order.items.join(", ")}</td>
-                <td class="${className}">$${order.totalPrice}</td>
-                <td class="${className}">${order.status}</td>
-                <td class="${className}">${new Date(order.timestamp).toLocaleString()}</td>
-                <td class="${className}">
-                    ${order.status === "Pending"
-                ? `<button data-id="${order.id}" class="bg-blue-400 text-white px-4 py-2 rounded" onClick="markAsCompleted('${order.id}')">
-                        Complete Order
-                    </button>` : ""}
+            <tr>
+                <td class="row-cell">${order.id}</td>
+                <td class="row-cell">${order.customer}</td>
+                <td class="row-cell">${order.items.join(", ")}</td>
+                <td class="row-cell">$${order.totalPrice}</td>
+                <td class="row-cell">${order.status}</td>
+                <td class="row-cell">${new Date(order.timestamp).toLocaleString()}</td>
+                <td class="row-cell">
+                    ${order.status === "Pending" ? `<button data-id="${order.id}" class="complete-button" onClick="markAsCompleted('${order.id}')">Complete Order</button>` : ""}
                 </td>
             </tr>`;
     };

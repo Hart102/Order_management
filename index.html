@@ -5,41 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Management</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link rel="stylesheet" href="./style.css">
 </head>
 
-<body class="overflow-y-hidden bg-gray-50 py-10 px-3 text-sm">
-    <div class="container mx-auto">
-        <h2 class="text-xl lg:text-3xl font-bold">Order Management</h2>
+<body>
+    <div class="container">
+        <h2>Order Management</h2>
 
-        <div class="space-y-2 lg:space-y-4 mt-8">
-            <div class="bg-white rounded-lg px-2 py-3 lg:py-5 lg:px-10">
-                <div class="text-sm flex items-center gap-5 lg:gap-8 text-gray-700">
+        <div>
+            <div class="filter-container">
+                <div class="flex-container">
                     <!-- Filter -->
-                    <div class="flex items-center gap-2">
-                        <svg class="w-4 h-4 hidden lg:block" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-5.414 5.414V20a1 1 0 01-1 1h-4a1 1 0 01-1-1v-7.293L3.293 7.293A1 1 0 013 6.586V4z" />
+                    <div class="flex-container">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-5.414 5.414V20a1 1 0 01-1 1h-4a1 1 0 01-1-1v-7.293L3.293 7.293A1 1 0 013 6.586V4z" />
                         </svg>
-                        <select id="filter" class="outline-transparent hover:outline-blue-400 p-2 rounded">
+                        <select id="filter">
                             <option value="All">All</option>
                             <option value="Pending">Pending</option>
                             <option value="Completed">Completed</option>
                         </select>
                     </div>
 
-                    <div class="hidden lg:block border h-5"></div>
+                    <div class="divider"></div>
 
                     <!-- Sort -->
-                    <div class="flex items-center gap-2">
-                        <svg class="w-4 h-4 hidden lg:block" xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M3 10h11M9 21l-6-6m0 0l6-6m-6 6h18" />
+                    <div class="flex-container">
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h11M9 21l-6-6m0 0l6-6m-6 6h18" />
                         </svg>
-                        <select id="sort" class="outline-transparent hover:outline-blue-400 p-2 rounded">
+                        <select id="sort">
                             <option value="by_date">Sort by Date</option>
                             <option value="by_price">Sort by Price</option>
                         </select>
@@ -47,21 +42,21 @@
                 </div>
             </div>
 
-            <div class="bg-white overflow-x-auto py-3 lg:py-10 lg:px-10 custom-scrollbar">
-                <table class="min-w-full">
-                    <thead class="bg-gray-50">
+            <div class="table-container custom-scrollbar">
+                <table>
+                    <thead>
                         <tr>
-                            <th class="p-2 whitespace-nowrap">Order ID</th>
-                            <th class="p-2 whitespace-nowrap">Customer</th>
-                            <th class="p-2 whitespace-nowrap">Items</th>
-                            <th class="p-2 whitespace-nowrap">Total Price</th>
-                            <th class="p-2 whitespace-nowrap">Status</th>
-                            <th class="p-2 whitespace-nowrap">Timestamp</th>
-                            <th class="p-2 whitespace-nowrap">Action</th>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Items</th>
+                            <th>Total Price</th>
+                            <th>Status</th>
+                            <th>Timestamp</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody id="order-table">
-                        <!-- Orders Render Here -->
+                        <!-- Rendering Orders Here -->
                     </tbody>
                 </table>
             </div>
