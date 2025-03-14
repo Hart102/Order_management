@@ -62,6 +62,7 @@ select:hover {
     background-color: var(--background-white);
     overflow-x: auto;
     padding: 12px 8px;
+    margin-top: 10px;
 }
 
 table {
